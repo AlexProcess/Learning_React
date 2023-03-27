@@ -6,6 +6,6 @@ import { HelloWorldApp } from "./HelloWorldApp";
 
 reactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <FirstApp title="Hola, soy AlexDev =)" />
+        <FirstApp />
     </React.StrictMode>
 );

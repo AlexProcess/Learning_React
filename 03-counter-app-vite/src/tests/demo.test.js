@@ -1,5 +1,9 @@
+describe("Pruebas en <DemoComponent/>", () => {});
+
 test("esta prueba no debe de fallar", () => {
-    if (0 === 1) {
-        throw new Error(" No puede dividir entre 0");
-    }
+    const message1 = "Hola mundo";
+
+    const message2 = message1.trim();
+
+    expect(message1).toBe(message2);
 });

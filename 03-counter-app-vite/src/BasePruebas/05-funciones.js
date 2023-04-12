@@ -7,7 +7,7 @@ const user = getUser();
 console.log(user);
 
 // Tarea
-const getUsuarioActivo = (nombre) => ({
+export const getUsuarioActivo = (nombre) => ({
     uid: "ABC567",
     username: nombre,
 });

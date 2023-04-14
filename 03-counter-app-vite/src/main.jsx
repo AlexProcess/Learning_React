@@ -7,6 +7,7 @@ import { CounterApp } from "./CounterApp";
 
 reactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <CounterApp />
+        <FirstApp />
+        {/* <CounterApp /> */}
     </React.StrictMode>
 );

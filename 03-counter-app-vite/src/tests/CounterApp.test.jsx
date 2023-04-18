@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { CounterApp } from "../CounterApp";
 
-describe("Pruebas en el counterApp", () => {
+describe("Pruebas en el <CounterApp />", () => {
     const initialValue = 10;
 
     test("debe de hacer match con el snapshot", () => {

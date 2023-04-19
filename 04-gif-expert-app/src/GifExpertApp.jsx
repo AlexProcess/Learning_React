@@ -5,7 +5,8 @@ export const GifExpertApp = () => {
     const [categories, setCategories] = useState(["One Punch", "Dragon Ball"]);
 
     const onAddCategory = (newCategory) => {
-        console.log(newCategory);
+        if (categories.includes(newCategory)) return;
+
         setCategories([newCategory, ...categories]);
         // setCategories((cat) => [...cat, "Valorant"]);
     };
@@ -17,9 +18,9 @@ export const GifExpertApp = () => {
 
             {/* {Input} */}
             <AddCategory
-                /*setCategories={setCategories}*/ onNewCategory={(value) =>
-                    onAddCategory(value)
-                }
+                /*setCategories={setCategories}*/
+                onNewCategory={(value) => onAddCategory(value)}
+                currentCategory={categories}
             />
             {/* {Listado del gif} */}
             <ol>

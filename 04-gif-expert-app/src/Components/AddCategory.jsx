@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const AddCategory = () => {
+export const AddCategory = ({ setCategories }) => {
     const [inputValue, setInputValue] = useState("One Punch");
 
     const onInputChange = ({ target }) => {
@@ -8,10 +8,15 @@ export const AddCategory = () => {
     };
 
     const onSubmit = () => {
-        console.log(event);
         event.preventDefault();
-        console.log(inputValue);
+
+        if (inputValue.trim().length <= 1) return;
+
+        setCategories((categories) => [inputValue, ...categories]);
+        setInputValue("");
     };
+
+    // setCategories([...categories, "Valorant"]);
 
     return (
         <form onSubmit={(event) => onSubmit(event)}>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const AddCategory = ({ setCategories }) => {
+export const AddCategory = ({ onNewCategory }) => {
     const [inputValue, setInputValue] = useState("One Punch");
 
     const onInputChange = ({ target }) => {
@@ -12,8 +12,9 @@ export const AddCategory = ({ setCategories }) => {
 
         if (inputValue.trim().length <= 1) return;
 
-        setCategories((categories) => [inputValue, ...categories]);
+        // setCategories((categories) => [inputValue, ...categories]);
         setInputValue("");
+        onNewCategory(inputValue.trim());
     };
 
     // setCategories([...categories, "Valorant"]);

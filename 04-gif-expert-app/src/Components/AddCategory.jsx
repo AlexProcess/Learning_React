@@ -9,6 +9,7 @@ export const AddCategory = ({ onNewCategory }) => {
     };
 
     const onSubmit = () => {
+        console.log("Hola mundo desde submit");
         event.preventDefault();
 
         if (inputValue.trim().length <= 1) return;
@@ -21,7 +22,7 @@ export const AddCategory = ({ onNewCategory }) => {
     // setCategories([...categories, "Valorant"]);
 
     return (
-        <form onSubmit={(event) => onSubmit(event)}>
+        <form onSubmit={(event) => onSubmit(event)} aria-label="form">
             <input
                 type="text"
                 placeholder="Buscar gifs"

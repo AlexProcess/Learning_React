@@ -6,7 +6,7 @@ describe("Pruebas en <GifItem/>", () => {
     const url = "https://anuelaa/saitama.jpg.com";
 
     test("debe de hacer match con el snapshot", () => {
-        const { container } = render(<GifItem title="" url="" />);
+        const { container } = render(<GifItem title="" url="" cd />);
         expect(container).toMatchSnapshot();
     });
 

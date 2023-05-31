@@ -1,5 +1,6 @@
 import { AddCategory } from "../../src/Components/AddCategory";
 import { fireEvent, render, screen } from "@testing-library/react";
+import { expect, jest, test } from "@jest/globals";
 
 describe("Pruebas en <AddCategory.jsx/>", () => {
     test("debe de cambiar el valor de la caja de texto", () => {
@@ -15,11 +16,10 @@ describe("Pruebas en <AddCategory.jsx/>", () => {
 
     test("debe de llamar onNewCategory si el input tiene un valor", () => {
         const inputValue = "Saitama";
-        //To Do ????
-
         const onNewCategory = jest.fn();
 
         render(<AddCategory onNewCategory={onNewCategory} />);
+
         const input = screen.getByRole("textbox");
         const form = screen.getByRole("form");
 
@@ -29,7 +29,7 @@ describe("Pruebas en <AddCategory.jsx/>", () => {
         expect(input.value).toBe("");
 
         expect(onNewCategory).toHaveBeenCalled();
-        expect(onNewCategory).toHaveBeenTimes(1);
+        expect(onNewCategory).toHaveBeenCalledTimes(1);
         expect(onNewCategory).toHaveBeenCalledWith(inputValue);
     });
 });

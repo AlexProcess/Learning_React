@@ -32,4 +32,23 @@ describe("Pruebas en <AddCategory.jsx/>", () => {
         expect(onNewCategory).toHaveBeenCalledTimes(1);
         expect(onNewCategory).toHaveBeenCalledWith(inputValue);
     });
+
+    test("no debe de llamar el onNewCategory si el input esta vacio", () => {
+        const inputValue = "Saitama";
+        const input = screen.getByRole("textbox");
+        const onNewCategory = jest.fn();
+
+        const form = screen.getByRole("form");
+        fireEvent.submit(form);
+
+        expect(onNewCategory).toHaveBeenCalledTimes(0);
+        expect(onNewCategory).not.toHaveBeenCalled(0);
+
+        render(<AddCategory onNewCategory={onNewCategory} />);
+
+        fireEvent.input(input, { target: { value: inputValue } });
+        fireEvent.submit(form);
+
+        expect;
+    });
 });

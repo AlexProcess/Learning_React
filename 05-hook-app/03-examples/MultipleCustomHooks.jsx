@@ -1,17 +1,15 @@
 import React from "react";
 import { useFetch, useCounter } from "../hooks";
-import { LoadingQuote, Quote } from "./index";
+import { LoadingQuote, Quote } from "./";
 
 export const MultipleCustomHooks = () => {
     const { counter, increment } = useCounter(1);
     const { data, isLoading, hasError } = useFetch(
         `https://api.breakingbadquotes.xyz/v1/quotes/${counter}`
     );
-
     const { author, quote } = !!data && data[0];
-    // si la data !!data y && la primera de posicion de data es decir data[0]
 
-    console.log(data);
+    // si la data !!data y && la primera de posicion de data es decir data[0]
 
     // if (isLoading === true) {
     //     return <h1>Cargando...</h1>;
@@ -37,6 +35,7 @@ export const MultipleCustomHooks = () => {
         </>
     );
 };
+// pregunta de porque el loading sigue activo
 
 // new API https://breakingbadquotes.xyz/
 

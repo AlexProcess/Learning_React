@@ -19,7 +19,6 @@ export const MultipleCustomHooks = () => {
         <>
             <h1>BreakingBad Quotes</h1>
             <hr />
-
             {isLoading ? (
                 <LoadingQuote />
             ) : (
@@ -32,6 +31,7 @@ export const MultipleCustomHooks = () => {
             >
                 Next quote
             </button>
+            Github
         </>
     );
 };

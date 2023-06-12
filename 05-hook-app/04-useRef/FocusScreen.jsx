@@ -4,7 +4,6 @@ export const FocusScreen = () => {
     const inputRef = useRef();
 
     const onClick = () => {
-        // document.querySelector("input").focus();
         inputRef.current.select();
     };
 

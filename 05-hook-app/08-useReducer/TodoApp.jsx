@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import { todoReducer } from "./todoReducer";
+import { TodoAdd } from "./TodoAdd";
 
 const initialState = [
     {
@@ -9,7 +10,7 @@ const initialState = [
     },
     {
         id: new Date().getTime(),
-        description: "recolectar la piedra alma",
+        description: "recolectar la piedra del tiempo",
         done: false,
     },
 ];
@@ -22,12 +23,13 @@ export const TodoApp = () => {
                 TodoApp: 10 <small>pendientes: 2</small>
             </h1>
             <hr />
-
             <div className="row">
                 <div className="col-7">
+                    {/* {TodoList} */}
                     <ul className="list-group">
                         {todos.map((todo) => (
                             <li
+                                //TodoItem
                                 key={todo.id}
                                 className="list-group-item d-flex justify-content-between"
                             >
@@ -40,23 +42,12 @@ export const TodoApp = () => {
                             </li>
                         ))}
                     </ul>
+                    {/* {TodoList} */}
                 </div>
                 <div className="col-5">
                     <h4>Agregar ToDo</h4>
                     <hr />
-                    <form>
-                        <input
-                            type="text"
-                            placeholder="¿Qué hay que hacer?"
-                            className="form-control"
-                        />
-                        <button
-                            type="submit"
-                            className="btn btn-outline-primary mt-2"
-                        >
-                            Agregar
-                        </button>
-                    </form>
+                    <TodoAdd />
                 </div>
             </div>
         </>

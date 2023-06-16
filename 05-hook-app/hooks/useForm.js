@@ -1,11 +1,7 @@
 import { useState } from "react";
 
 export const useForm = (initialForm = {}) => {
-    const [formState, setFormState] = useState({
-        username: "",
-        email: "",
-        password: "",
-    });
+    const [formState, setFormState] = useState(initialForm);
 
     const onResetForm = () => {
         setFormState(initialForm);

@@ -3,20 +3,19 @@ import { todoReducer } from "./todoReducer";
 import { TodoAdd } from "./TodoAdd";
 import { TodoList } from "./TodoList";
 
-const initialState = [
-    // {
-    //     id: new Date().getTime() * 3,
-    //     description: "make $$$",
-    //     done: false,
-    // },
-];
+const initialState = [];
 
 const init = () => {
     let dataInLocal = localStorage.getItem("task");
     return dataInLocal ? JSON.parse(dataInLocal) : [];
 };
 export const TodoApp = () => {
+    const { todos, handleDeleteTodo, handleToggleTodo, HandleNewTodo } =
+        useTodo();
     const [todos, dispatch] = useReducer(todoReducer, initialState, init);
+
+    //useTodo
+    //todos, handleDeleteTodo, handleToggleTodo, HandleNewTodo
 
     useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(todos));

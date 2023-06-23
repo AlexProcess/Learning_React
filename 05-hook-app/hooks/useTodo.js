@@ -9,6 +9,8 @@ const init = () => {
 export const useTodo = () => {
     const initialState = [];
     const [todos, dispatch] = useReducer(todoReducer, initialState, init);
+    const todosCount = todos.length;
+    const pendingTodosCounter = todos.filter(() => !todos.done).length;
 
     useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(todos));
@@ -40,5 +42,7 @@ export const useTodo = () => {
         handleToggleTodo,
         handleDeleteTodo,
         todos,
+        todosCount,
+        pendingTodosCounter,
     };
 };

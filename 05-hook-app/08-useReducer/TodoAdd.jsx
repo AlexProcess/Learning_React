@@ -22,6 +22,7 @@ export const TodoAdd = ({ onNewTodo }) => {
         <>
             <form onSubmit={onFormSubmit}>
                 <input
+                    aria-label="inputAdd"
                     type="text"
                     placeholder="¿Qué hay que hacer?"
                     className="form-control"

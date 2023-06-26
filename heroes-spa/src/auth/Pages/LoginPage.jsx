@@ -1,9 +1,9 @@
 import React from "react";
 
-export const HeroesApp = () => {
+export const LoginPage = () => {
     return (
         <>
-            <h1>HeroesApp</h1>
+            <h1>LoginPage</h1>
         </>
     );
 };

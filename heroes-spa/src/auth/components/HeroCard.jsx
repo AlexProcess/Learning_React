@@ -1,3 +1,9 @@
+import { Link } from "react-router-dom";
+
+const CharactersByHero = ({alter_ego, characters}) => {
+    if (alter_ego === characters) return (<></>)
+    return <p>{characters}</p>
+} 
 
 export const HeroCard = (
     {
@@ -10,6 +16,8 @@ export const HeroCard = (
 }
 ) => {
     const heroeImage = `/assets/heroes/${id}.jpg`;
+
+    // const charactersByHero = (<p>{characters}</p>)
     
   return (
     <>
@@ -23,7 +31,16 @@ export const HeroCard = (
                         <div className="card-body">
                             <h5 className="card-title">{superhero}</h5>
                             <p className="card-text">{alter_ego}</p>
-                            <p>{characters}</p>
+                            {/* {
+                                (alter_ego !== characters) && charactersByHero
+                            } */}
+                            <CharactersByHero characters={characters} alter_ego={alter_ego}/>
+                            <p className="card-text">
+                                <small className="text-muted">{first_appearance}</small>
+                            </p>
+                            <Link to={`/hero${id}`}>
+                               Más información 
+                            </Link>
                         </div>        
                     </div>
                 </div>

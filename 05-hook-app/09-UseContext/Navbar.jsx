@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 
 export const Navbar = () => {
+    const onLogout = () => {};
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded-3">

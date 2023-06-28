@@ -8,11 +8,13 @@ export const HeroesRoutes = () => {
             <Navbar />
             <div className="container">
                 <Routes>
-                    <Route path="marvel" element={<MarvelPage />} />
-                    <Route path="dc" element={<DcPage />} />
-                    <Route path="hero" element={<Hero />} />
-                    <Route path="search" element={<SearchPage />} />
-                    <Route path="/" element={<Navigate to={"marvel"} />} />
+                    <Route path="/marvel" element={<MarvelPage />} />
+                    <Route path="/dc" element={<DcPage />} />
+                    <Route path="/search" element={<SearchPage />} />
+                    <Route path="/hero/:id" element={<Hero />} />
+
+                    
+                    <Route path="/" element={<Navigate to={"/marvel"} />} />
                 </Routes>
             </div>
         </>

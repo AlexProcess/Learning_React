@@ -43,7 +43,7 @@ export const HeroCard = (
                             </Link>
                         </div>        
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     </>

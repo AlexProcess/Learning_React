@@ -19,7 +19,7 @@ export const Hero = () => {
     return (
         <div className="row mt-5">
             <div className="col-4">
-                <img src={`/assets/heroes/${id}.jpg`} alt={hero.superhero} className="img-thumnail"></img>
+                <img src={`/assets/heroes/${id}.jpg`} alt={hero.superhero} className="img-thumnail animate__animated animate__fadeIn"></img>
                 <h3>{hero.superhero}</h3>
                 <ul>
                     <li>

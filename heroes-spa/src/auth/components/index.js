@@ -1,2 +1,2 @@
-export * from '../components'
-export * from '../components'
+export * from './HeroCard'
+export * from './HeroList'

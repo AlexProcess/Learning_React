@@ -1,7 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 
 export const Navbar = () => {
-    const onLogout = () => {};
 
     return (
         <>
@@ -36,6 +35,7 @@ export const Navbar = () => {
                             >
                                 login
                             </NavLink>
+
                         </ul>
                     </div>
                 </div>

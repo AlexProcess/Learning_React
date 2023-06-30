@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { UserContext } from "../../09-UseContext/context/UserContext";
-import { LoginPage } from "../../09-UseContext/LoginPage";
+import { LoginPage } from "../../../heroes-spa/src/auth/Pages/LoginPage";
 
 describe("Pruebas en el componente <LoginPage/>", () => {
     test("debe de mostrar el componente sin el usuario", () => {

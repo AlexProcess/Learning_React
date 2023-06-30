@@ -1,6 +1,10 @@
 import React, { useReducer } from 'react'
 import { AuthContext } from './AuthContext'
-import { AuthReducer, initialState } from './AuthReducer'
+import { AuthReducer } from './AuthReducer'
+
+const initialState = {
+        logged: false,
+}
 
 export const AuthProvider = ({children}) => {
     const {authState, dispach} = useReducer(AuthReducer, initialState)

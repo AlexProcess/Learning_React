@@ -3,7 +3,6 @@ import { UserContext } from "./context/UserContext";
 
 export const LoginPage = () => {
     const { user, setUser } = useContext(UserContext);
-
     return (
         <>
             <h1>LoginPage</h1>

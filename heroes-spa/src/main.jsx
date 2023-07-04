@@ -4,7 +4,7 @@ import "./styles.css";
 import { HeroesApp } from "./heroes/pages/HeroesApp";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <React.StrictMode>
+
         <HeroesApp />
-    </React.StrictMode>
+    
 );

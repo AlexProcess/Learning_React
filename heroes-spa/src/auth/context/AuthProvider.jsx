@@ -7,22 +7,25 @@ const initialState = {
         logged: false,
 }
 
-export const AuthProvider = ({children}) => {
-    const {authState, dispach} = useReducer(AuthReducer, initialState)
 
+
+export const AuthProvider = ({children}) => {
+    const [authState, dispatch] = useReducer(AuthReducer, initialState)
+    console.log(authState)
     const login = async( name = '' ) => {
       const action = {
-        types: types.login,
+        type: types.login,
         payload: {
           id: "ABC",
           name: name,
         }
       }
+      dispatch(action)
     }
   return (
 
     <AuthContext.Provider value={{
-      authState,
+      ...authState,
       login: login,
     }}>
         {children}

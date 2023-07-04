@@ -1,8 +1,20 @@
 import React, { useContext } from "react";
 import { UserContext } from "./context/UserContext";
+import { Navigate, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../heroes-spa/src/auth/context";
 
 export const LoginPage = () => {
-    const { user, setUser } = useContext(UserContext);
+    // const { user, setUser } = useContext(UserContext);
+    const navigate = useNavigate()
+    const {login} = useContext(AuthContext)
+
+    const onLogin = () => {
+        login("Alex Tercero")
+
+        Navigate("/",{
+            replace: true
+        });
+    }
     return (
         <>
             <h1>LoginPage</h1>
@@ -12,9 +24,7 @@ export const LoginPage = () => {
 
             <button
                 className="btn btn-primary"
-                onClick={() =>
-                    setUser({ id: 123, name: "Juan", Email: "juan@gmail.com" })
-                }
+                onClick={onLogin}
             >
                 Establecer usuario
             </button>

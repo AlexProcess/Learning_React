@@ -8,7 +8,9 @@ import { PokemonApp } from "./PokemonApp";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <Provider store={store}>{/* <App /> */}</Provider>
-        <PokemonApp />
+        <Provider store={store}>
+            {/* <App /> */}
+            <PokemonApp />
+        </Provider>
     </React.StrictMode>
 );

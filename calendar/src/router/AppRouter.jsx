@@ -1,10 +1,11 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import { LoginPage } from "../auth";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CalendarPage } from "../calendar";
+import { LoginPage } from "../auth";
 
 export const AppRouter = () => {
-    const authStatus = "not authorized";
+    const authStatus = "authenticated";
+
     return (
         <BrowserRouter>
             <Routes>
@@ -16,6 +17,7 @@ export const AppRouter = () => {
 
                 <Route path="/auth/*" Navigate to="/auth/login" />
             </Routes>
+            s
         </BrowserRouter>
     );
 };

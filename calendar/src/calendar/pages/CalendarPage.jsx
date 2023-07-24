@@ -6,10 +6,11 @@ import { getMessagesES, localizer } from "../../helpers";
 import { CalendarEvent } from "../components/CalendarEvent";
 import { useState } from "react";
 import { CalendarModal } from "../components/CalendarModal";
-import { useUiStore } from "../../hooks";
+import { useUiStore, useCalendarStore } from "../../hooks";
 
 export const CalendarPage = () => {
     const { openDateModal } = useUiStore();
+    const { events } = useCalendarStore();
     const [lastView, setLastView] = useState(
         localStorage.getItem("lastView") || "week"
     );
@@ -31,7 +32,7 @@ export const CalendarPage = () => {
         // console.log({ onDoubleClick: event });
         openDateModal();
     };
-    const events = [
+    const event = [
         {
             title: "croissant con fokin cafe",
             notes: "hay que comprar el pastel",

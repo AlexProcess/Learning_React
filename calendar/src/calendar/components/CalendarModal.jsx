@@ -10,15 +10,17 @@ import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 
 import es from "date-fns/locale/es";
+import { useUiStore } from "../../hooks";
 
 registerLocale("es", es);
 
 export const CalendarModal = () => {
+    const { isDateModalOpen, closeDateModal } = useUiStore();
     const [formSubmitted, setFormSubmitted] = useState(false);
-    const [isOpen, setIsOpen] = useState(true);
 
     const onCloseModal = () => {
-        setIsOpen(false);
+        // console.log("se cierra la modal");
+        closeDateModal();
     };
 
     const customStyles = {
@@ -80,8 +82,8 @@ export const CalendarModal = () => {
     // remover errores en pantalla
     return (
         <ReactModal
-            isOpen={isOpen}
-            onRequestClose={onCloseModal}
+            isOpen={isDateModalOpen}
+            onRequestClose={closeDateModal}
             style={customStyles}
             overlayClassName={"modal-fondo"}
             closeTimeoutMS={200}

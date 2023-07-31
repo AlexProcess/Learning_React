@@ -18,7 +18,7 @@ export const CalendarModal = () => {
     const { isDateModalOpen, closeDateModal } = useUiStore();
     const [formSubmitted, setFormSubmitted] = useState(false);
 
-    const { activeEvent } = useCalendarStore();
+    const { activeEvent, startSavingEvent } = useCalendarStore();
 
     const onCloseModal = () => {
         // console.log("se cierra la modal");
@@ -70,7 +70,7 @@ export const CalendarModal = () => {
         });
     };
 
-    const onSubmit = (event) => {
+    const onSubmit = async(event) => {
         event.preventDefault();
         setFormSubmitted(true);
         const difference = differenceInSeconds(
@@ -86,8 +86,10 @@ export const CalendarModal = () => {
     };
 
     //TODO:
-    // cerrar el modal
-    // remover errores en pantalla
+    await startSavingEvent( formValues );
+    closeDateModal();
+
+    
     return (
         <ReactModal
             isOpen={isDateModalOpen}

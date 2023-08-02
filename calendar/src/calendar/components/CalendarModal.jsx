@@ -14,17 +14,9 @@ import { useCalendarStore, useUiStore } from "../../hooks";
 
 registerLocale("es", es);
 
+ReactModal.setAppElement("#root");
+
 export const CalendarModal = () => {
-    const { isDateModalOpen, closeDateModal } = useUiStore();
-    const [formSubmitted, setFormSubmitted] = useState(false);
-
-    const { activeEvent, startSavingEvent } = useCalendarStore();
-
-    const onCloseModal = () => {
-        // console.log("se cierra la modal");
-        closeDateModal();
-    };
-
     const customStyles = {
         content: {
             top: "50%",
@@ -36,7 +28,16 @@ export const CalendarModal = () => {
             width: "600px",
         },
     };
-    ReactModal.setAppElement("#root");
+
+    const { isDateModalOpen, closeDateModal } = useUiStore();
+    const [formSubmitted, setFormSubmitted] = useState(false);
+
+    const { activeEvent, startSavingEvent } = useCalendarStore();
+
+    const onCloseModal = () => {
+        // console.log("se cierra la modal");
+        closeDateModal();
+    };
 
     const [formValues, setFormValues] = useState({
         title: "Alex",
@@ -70,37 +71,38 @@ export const CalendarModal = () => {
         });
     };
 
-    const onSubmit = async(event) => {
+    const onSubmit = async (event) => {
         event.preventDefault();
         setFormSubmitted(true);
         const difference = differenceInSeconds(
             formValues.end,
             formValues.start
         );
+
         if (isNaN(difference) || difference <= 0) {
             Swal.fire("Fechas incorrectas", "Revise la fecha ingresada");
             return;
         }
         if (formValues.title.length <= 0) return;
-        console.log(formValues);
+
+        await startSavingEvent(formValues);
+        closeDateModal();
     };
 
     //TODO:
-    await startSavingEvent( formValues );
-    closeDateModal();
 
-    
     return (
         <ReactModal
             isOpen={isDateModalOpen}
-            onRequestClose={closeDateModal}
+            onRequestClose={onCloseModal}
             style={customStyles}
+            // className="modal"
             overlayClassName={"modal-fondo"}
             closeTimeoutMS={200}
         >
             <h1> Nuevo evento </h1>
             <hr />
-            <form className="container" onClick={onSubmit}>
+            <form className="container" onSubmit={onSubmit}>
                 <div className="form-group mb-2">
                     <label>Fecha y hora inicio</label>
                     <DatePicker

@@ -8,12 +8,8 @@ console.log(process.env);
 const app = express();
 
 //RUTAS
-
-// app.get("/", (req, res) => {
-//     res.json({
-//         ok: true,
-//     });
-// });
+app.use("/api/auth", require("./routes/auth"));
+//TODO: CRUD: EVENTOS
 
 //Directorio publico
 app.use(express.static("public"));

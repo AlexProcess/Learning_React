@@ -1,8 +1,6 @@
 const express = require("express");
 require("dotenv").config();
 
-console.log(process.env);
-
 //Crear el servidor de express
 
 const app = express();

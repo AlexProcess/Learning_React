@@ -5,12 +5,16 @@ require("dotenv").config();
 
 const app = express();
 
+//Directorio publico
+app.use(express.static("public"));
+
+//lectura y parseo del body
+
+app.use(express.json());
+
 //RUTAS
 app.use("/api/auth", require("./routes/auth"));
 //TODO: CRUD: EVENTOS
-
-//Directorio publico
-app.use(express.static("public"));
 
 //Escuchar peticiones
 app.listen(process.env.PORT, () => {

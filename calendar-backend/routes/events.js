@@ -14,15 +14,16 @@ const {
     getEventos,
 } = require("../controllers/events");
 //Todas tienen que pasar por la validación del token
+router.use(validarJWT);
 // Obtener eventos
-router.get("/", validarJWT, getEventos);
+router.get("/", getEventos);
 
 //Crear nuevo evento
-router.post("/", validarJWT, CrearEvento);
+router.post("/", CrearEvento);
 
 //Actualizar evento
-router.put("/:id", validarJWT, actualizarEvento);
+router.put("/:id", actualizarEvento);
 
-router.delete("/:id", validarJWT, EliminarEvento);
+router.delete("/:id", EliminarEvento);
 
 module.exports = router;

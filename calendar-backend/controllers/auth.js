@@ -83,13 +83,6 @@ const loginUsuario = async (req, res = response) => {
             msg: "Por favor hable con el administrador",
         });
     }
-
-    res.json({
-        ok: true,
-        msg: "login",
-        email,
-        password,
-    });
 };
 
 const revalidarToken = async (req, res = response) => {
